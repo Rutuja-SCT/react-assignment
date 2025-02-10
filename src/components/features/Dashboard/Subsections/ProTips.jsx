@@ -1,11 +1,9 @@
 import React from "react";
 import { Box, Typography, Chip, Avatar, Grid } from "@mui/material";
 import { ProTipsData } from "../../../../utils/data";
-import { useThemeContext } from "../../../../utils/themeContext/ThemeContext";
 
 
 const ProTips = () => {
-  const theme = useThemeContext();
   return (
     <Box sx={{ p: 3,width:"90%"  }}>
       {/* Section Title */}
@@ -63,7 +61,7 @@ const ProTips = () => {
                     }}
                   >
                     <Avatar src={tip.userAvatar} sx={{ width: 18, height: 18 }} />
-                    <Typography color={theme.palette.text.primary}>{tip.date}</Typography>
+                    <Typography fontWeight="bold" sx={{color:"primary.main",background:"transparent"}}>{tip.date}</Typography>
                   </Box>
                 </Box>
               </Box>

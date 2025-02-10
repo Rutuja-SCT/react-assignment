@@ -6,15 +6,19 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { ROUTES } from './utils/constants';
 import { ThemeContextProvider } from './utils/themeContext/ThemeContext';
+import { Provider } from "react-redux";
+import store from './utils/redux/store';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ThemeContextProvider>
+    <Provider store={store}>
       <BrowserRouter basename={ROUTES.ROOT_PATH}>
         <App />
       </BrowserRouter>
+      </Provider>
     </ThemeContextProvider>
   </React.StrictMode>
 );
