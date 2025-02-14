@@ -1,14 +1,31 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import TotalCustomersChart from './Subsections/TotalCustomersChart';
 import ProductViewsChart from './Subsections/ProductViewsChart';
 import ProTips from './Subsections/ProTips';
 import NewCustomer from './Subsections/NewCustomer';
 import Comments from './Subsections/Comments';
 import PopularProducts from './Subsections/PopularProducts';
+import { useGetTotalCustomersQuery } from '../../../utils/redux/slices/dashboardSlice';
 
 const Dashboard = () => {
+  // getting data for dashboard components 
+  // get total customers data
+  const { data: totalCustomersData, isLoading: totalCustomersLoading } = useGetTotalCustomersQuery();
+  console.log('totalCustomersData: ', totalCustomersData);
+  // // get product views data
+  // const { data: productViewsData, isLoading: productViewsLoading } = useGetProductViewsQuery();
+  // // get pro tips data
+  // const { data: proTipsData, isLoading: proTipsLoading } = useGetProTipsQuery();
+  // // get new customers data
+  // const { data: newCustomersData, isLoading: newCustomersLoading } = useGetNewCustomersQuery();
+  // // get comments data
+  // const { data: commentsData, isLoading: commentsLoading } = useGetCommentsQuery();
+  // // get popular products data
+  // const { data: popularProductsData, isLoading: popularProductsLoading } = useGetPopularProductsQuery();
   return (
+    <>
+   <Typography variant='h4' sx={{paddingBottom:"24px"}}>Dashboard</Typography>
     <Box
       sx={{
         display: 'flex',
@@ -50,6 +67,7 @@ const Dashboard = () => {
         <PopularProducts />
       </Box>
     </Box>
+    </>
   );
 };
 

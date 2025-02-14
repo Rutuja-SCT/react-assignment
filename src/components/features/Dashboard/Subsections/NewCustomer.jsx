@@ -1,12 +1,12 @@
 import React from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { Box, Typography, Paper } from "@mui/material";
-import { NewCustomerData } from "../../../../utils/data";
+import { NewCustomerData } from "../../../../utils/constants/data";
 
 
 const NewCustomer = () => {
   return (
-    <Box sx={{ textAlign: "center", p: 2 }}>
+    <Box sx={{ p: 3  ,width:"100%", backgroundColor:"",borderRadius:"30px",mb:3,boxShadow: 5}}>
       <Typography variant="h6" fontWeight="bold">
         New customer
       </Typography>
@@ -22,7 +22,7 @@ const NewCustomer = () => {
             innerRadius={60}
             outerRadius={80}
             paddingAngle={5}
-            label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+            // label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
           >
             {NewCustomerData.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={entry.color} />

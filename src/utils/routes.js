@@ -3,7 +3,7 @@ import { Suspense } from "react";
 
 //pages
 import MainLayout from "../components/MainLayout/MainLayout";
-import { ROUTES } from "./constants";
+import { ROUTES } from "./constants/constants";
 import Dashboard from "../components/features/Dashboard/Dashboard";
 
 

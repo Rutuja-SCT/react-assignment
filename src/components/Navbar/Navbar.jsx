@@ -1,14 +1,24 @@
 import { FunctionComponent, useState, useCallback, useEffect } from "react";
 import { useAppSelector } from "../../utils/redux/store";
 import { userSelector } from "../../utils/redux/slices/userSlice";
-import { AppBar, Toolbar, IconButton, Avatar, Typography, Menu, MenuItem, Drawer } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Avatar,
+  Typography,
+  Menu,
+  MenuItem,
+  Drawer,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import ProfileDropdown from "./ProfileDropdown/ProfileDropdown";
+import ProfileDropdown from "./Profile/ProfileDropdown";
+import AddProduct from "./Profile/AddProduct";
+import Notification from "./Profile/Notification";
+import Logo from "./Profile/Logo";
 
-const Navbar = ({
-  className = "",
-}) => {
+const Navbar = ({ className = "" }) => {
   const loginUser = useAppSelector(userSelector.loginUserDetails);
 
   const [profileDropdownPopupOpen, setProfileDropdownPopupOpen] =
@@ -39,26 +49,26 @@ const Navbar = ({
         position="static"
         sx={{
           boxShadow: "0px 2px 3px rgba(163, 155, 141, 0.32)",
-          backgroundColor: "primary.main",
-          padding: "0.687rem 1.25rem",
+          backgroundColor: "back.main",
           zIndex: 50,
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          paddingLeft: "1.25rem",
         }}
         className={className}
       >
+        <IconButton edge="start" color="inherit">
+          <Logo />
+        </IconButton>
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           {/* Left Side - Logo & Menu */}
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <IconButton
-              edge="start"
-              color="inherit"
-              sx={{ display: { xs: "flex", md: "none" } }} // Show only on mobile
-              onClick={() => setClubNavOpen(true)}
-            >
-              <MenuIcon />
-            </IconButton>
-
-          </div>
-
+          <div
+            style={{ display: "flex", alignItems: "center", gap: "10px" }}
+          ></div>
+          <AddProduct />
+          <Notification />
           {/* Right Side - Profile */}
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <Typography variant="body2" color="textPrimary">
@@ -77,22 +87,6 @@ const Navbar = ({
           </div>
         </Toolbar>
       </AppBar>
-
-      {/* Sidebar Navigation */}
-      <Drawer anchor="left" open={clubNavOpen} onClose={() => setClubNavOpen(false)}>
-        {/* <ClubNav onClose={() => setClubNavOpen(false)} /> */}
-      </Drawer>
-
-      {/* Profile Dropdown Menu */}
-      <Menu
-        anchorEl={anchorEl}
-        open={profileDropdownOpen}
-        onClose={() => setAnchorEl(null)}
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-        transformOrigin={{ vertical: "top", horizontal: "right" }}
-      >
-        <ProfileDropdown onClose={() => setAnchorEl(null)} />
-      </Menu>
     </>
   );
 };

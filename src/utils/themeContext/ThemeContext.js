@@ -28,6 +28,7 @@ export const ThemeContextProvider = ({ children }) => {
           mode: isDarkMode ? "dark" : "light",
           primary: { main: "#1976d2" },
           secondary: { main: "#ff4081" },
+          back:{main:"#303030"}
         },
       }),
     [isDarkMode]

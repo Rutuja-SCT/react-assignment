@@ -12,11 +12,11 @@ import {
   ListItemText,
   Chip,
 } from "@mui/material";
-import { ProductsData } from "../../../../utils/data";
+import { ProductsData } from "../../../../utils/constants/data";
 
 const PopularProducts = () => {
   return (
-    <Card sx={{ mb: 2 }}>
+    <Card sx={{ p: 3  ,width:"100%", backgroundColor:"",borderRadius:"30px",mb:3}}>
         <CardContent>
           <Typography variant="h6" fontWeight="bold">
             Popular products

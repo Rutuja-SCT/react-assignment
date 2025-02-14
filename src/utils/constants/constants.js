@@ -46,4 +46,4 @@ export const NAVIGATION = {
 export const ROUTES = {
     ROOT_PATH: "/",
     DASHBOARD: "/dashboard",
-  }
+}

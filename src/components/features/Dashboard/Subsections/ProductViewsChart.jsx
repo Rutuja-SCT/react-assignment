@@ -9,11 +9,11 @@ import {
   ResponsiveContainer
 } from "recharts";
 import { Box, Typography, Select, MenuItem } from "@mui/material";
-import { ProductViewsData } from "../../../../utils/data";
+import { ProductViewsData } from "../../../../utils/constants/data";
 
 const ProductViewsChart = () => {
   return (
-    <Box sx={{ p: 3, width:"90%"}}>
+    <Box sx={{ p: 3  ,width:"100%", backgroundColor:"",borderRadius:"30px",boxShadow: 5}}>
       {/* Header Section */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Typography variant="h6" fontWeight="bold">

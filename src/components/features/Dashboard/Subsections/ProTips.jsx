@@ -1,11 +1,11 @@
 import React from "react";
 import { Box, Typography, Chip, Avatar, Grid } from "@mui/material";
-import { ProTipsData } from "../../../../utils/data";
+import { ProTipsData } from "../../../../utils/constants/data";
 
 
 const ProTips = () => {
   return (
-    <Box sx={{ p: 3,width:"90%"  }}>
+    <Box sx={{ p: 3  ,width:"100%", backgroundColor:"",borderRadius:"30px",boxShadow: 5}}>
       {/* Section Title */}
       <Typography variant="h6" fontWeight="bold">
         Pro tips

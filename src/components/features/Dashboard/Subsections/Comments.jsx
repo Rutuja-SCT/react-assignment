@@ -14,12 +14,12 @@ import {
   Chip,
 } from "@mui/material";
 import { ChatBubbleOutline, FavoriteBorder, Link as LinkIcon } from "@mui/icons-material";
-import { CommentsData } from "../../../../utils/data";
+import { CommentsData } from "../../../../utils/constants/data";
 
 
 const Comments = () => {
   return (
-         <Card sx={{ mb: 2 }}>
+         <Card sx={{ p: 3  ,width:"100%", backgroundColor:"",borderRadius:"30px",mb:3}}>
          <CardContent>
            <Typography variant="h6" fontWeight="bold">
              Comments

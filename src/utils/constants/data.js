@@ -4,9 +4,52 @@ import {
     Description,
     CameraAlt,
     Email,
-    Home
+    Home,
+    Dashboard
   } from "@mui/icons-material";
 
+  import PersonIcon from "@mui/icons-material/Person";
+  import PhoneIcon from "@mui/icons-material/Phone";
+  import MenuBookIcon from "@mui/icons-material/MenuBook"; // Or ContactsIcon
+  import LocalOfferIcon from "@mui/icons-material/LocalOffer";
+  import SettingsIcon from "@mui/icons-material/Settings";
+import HomeIcon from "@mui/icons-material/Home";
+
+
+// create a list of navItems and list of it's subitems
+export const SideBarItems = [
+  {
+    main:"Dashboard",
+    sub:[],
+    icon: <HomeIcon/>
+  },
+  {
+    main:"Products",
+    sub:[
+      "Analytics","Drafts","Released","Comments","Scheduled"],
+    icon: <LocalOfferIcon/>
+  },
+  {
+    main:"Customers",
+    sub:[],
+    icon:<PersonIcon />
+  },
+  {
+    main:"Store",
+    sub:[],
+    icon:<PhoneIcon />
+  },
+  {
+    main:"Revenue",
+    sub:[],
+    icon:<MenuBookIcon />
+  },
+  {
+    main:"Discount",
+    sub:[],
+    icon:<SettingsIcon />
+  }
+]
 export const TotalCustomersData = {
     "customers": 68192,
     "growthPercentage": 37.8,

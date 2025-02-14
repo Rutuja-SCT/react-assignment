@@ -15,6 +15,7 @@ import {
 } from "redux-persist";
 import {  useDispatch, useSelector } from "react-redux";
 import storage from "redux-persist/lib/storage";
+import { apiSlice } from "./slices/apiSlice";
 
 
 const middlewares = [process.env.NODE_ENV !== "production" && logger].filter(
@@ -24,10 +25,12 @@ const middlewares = [process.env.NODE_ENV !== "production" && logger].filter(
 //create persisted store for getting data after page refresh or close
 const persistConfig = {
   key: "user",
+  version: 1,
   storage: storage,
 };
 const rootReducer = combineReducers({
   user: userReducer,
+  [apiSlice.reducerPath]: apiSlice.reducer,
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
@@ -39,7 +42,7 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(...middlewares),
+    }).concat(...middlewares, apiSlice.middleware),
 });
 
 export const persistor = persistStore(store);
